@@ -1,0 +1,32 @@
+﻿類別,角色,位置,推薦ID,中文名,Stats/詞條,理由
+規則,全部,飾品,,,耳環/戒指/手環/同 EquipPartGroup 相同類型只選 1 件,依傷害評分取前三個不同類型
+武器,Sword,武器,1007,暗影劍,Atk:190|CorruptionMax:20|BackAttackDamagePercent:8,背擊增傷已視為 0 收益後，同武器類型傳奇中仍是最高傷害分數；主要靠基礎 Atk 190
+武器,Phone,武器,1107,謎團墊,Atk:190|CorruptionMax:20|BackAttackDamagePercent:8,背擊增傷已視為 0 收益後，同武器類型傳奇中仍是最高傷害分數；主要靠基礎 Atk 190
+武器,Shotgun,武器,1207,亡靈獵手,Atk:190|CorruptionMax:20|BackAttackDamagePercent:8,背擊增傷已視為 0 收益後，同武器類型傳奇中仍是最高傷害分數；主要靠基礎 Atk 190
+武器,Revolver,武器,1307,奧秘左輪手槍,Atk:190|CorruptionMax:20|BackAttackDamagePercent:8,背擊增傷已視為 0 收益後，同武器類型傳奇中仍是最高傷害分數；主要靠基礎 Atk 190
+飾品-各類型最佳,全部,戒指 1,20026,預知之戒,CriticalChancePercent:22.5|AtkSpeedPercent:20|CooldownReductionPercent:5,該類型最高傷害分數 259.72
+飾品-各類型最佳,全部,耳環 3,22016,疾走耳環,MoveSpeedPercent:12.5|CriticalChancePercent:7.5|AtkSpeedPercent:20,該類型最高傷害分數 241.97
+飾品-各類型最佳,全部,諾里蓋 5,25035,碧風諾里蓋,WindResistancePercent:60|BackAttackDamagePercent:15|AtkSpeedPercent:20,該類型最高傷害分數 233.59
+飾品-各類型最佳,全部,項鍊 2,21034,再生項鍊,HpRegen:4.5|Atk:15|PenetrationPercent:10,該類型最高傷害分數 225.77
+飾品-各類型最佳,全部,手鐲 4,23014,時間扭曲手鐲,CooldownReductionPercent:12.5|HpRegen:4.5|WeaknessDamagePercent:20,該類型最高傷害分數 225.20
+飾品-各類型最佳,全部,類型 6,24053,忍耐胸針,,該類型最高傷害分數 194.66
+飾品-各類型最佳,全部,類型 7,26022,熾天使腕錶,,該類型最高傷害分數 194.66
+飾品-各類型最佳,全部,類型 8,23063,獵人腳鏈,,該類型最高傷害分數 194.66
+飾品套裝,全部,若只限定戒指/耳環/手鐲,20026 + 22016 + 23014,預知之戒 + 疾走耳環 + 時間扭曲手鐲,戒指:CriticalChancePercent:22.5|AtkSpeedPercent:20|CooldownReductionPercent:5 / 耳環:MoveSpeedPercent:12.5|CriticalChancePercent:7.5|AtkSpeedPercent:20 / 手鐲:CooldownReductionPercent:12.5|HpRegen:4.5|WeaknessDamagePercent:20,這只是舊假設下的對照組；實際最終推薦請看「任選所有飾品類型」
+飾品套裝,全部,任選所有飾品類型,20026 + 22016 + 25035,預知之戒 + 疾走耳環 + 碧風諾里蓋,戒指:CriticalChancePercent:22.5|AtkSpeedPercent:20|CooldownReductionPercent:5 / 耳環:MoveSpeedPercent:12.5|CriticalChancePercent:7.5|AtkSpeedPercent:20 / 諾里蓋:WindResistancePercent:60|BackAttackDamagePercent:15|AtkSpeedPercent:20,背擊增傷視為 0 收益；不限定戒指/耳環/手鐲，只取所有類型中傷害分數最高的三件
+遺物詞條,全部,通用最高傷害遺物詞條,10004,유명 장인의 서명,Atk:17|PenetrationPercent:12.0,無負面，泛用最高；攻擊、增傷、暴擊、攻速、冷卻都覆蓋
+遺物詞條,全部,通用最高傷害遺物詞條,10005,연대기적 희귀성,AdditionalAttackDamagePercent:15.0,無負面，泛用最高；攻擊、增傷、暴擊、攻速、冷卻都覆蓋
+遺物詞條,全部,通用最高傷害遺物詞條,10009,전설 속 등장품,CriticalDamagePercent:60.0,無負面，泛用最高；攻擊、增傷、暴擊、攻速、冷卻都覆蓋
+遺物詞條,全部,通用最高傷害遺物詞條,10003,승리의 증거,CriticalChancePercent:10.0,無負面，泛用最高；攻擊、增傷、暴擊、攻速、冷卻都覆蓋
+遺物詞條,全部,通用最高傷害遺物詞條,10018,시간의 잔향,AtkSpeedPercent:15.0,無負面，泛用最高；攻擊、增傷、暴擊、攻速、冷卻都覆蓋
+遺物詞條,全部,通用最高傷害遺物詞條,10007,고대의 지혜,CooldownReductionPercent:8.0|AtkSpeedPercent:5.0,無負面，泛用最高；攻擊、增傷、暴擊、攻速、冷卻都覆蓋
+遺物詞條,全部,穩定爆爆套,10004,유명 장인의 서명,Atk:17|PenetrationPercent:12.0,追求爆發暴擊；用 10017 取代 20005，降低額外傷害負面副作用
+遺物詞條,全部,穩定爆爆套,10005,연대기적 희귀성,AdditionalAttackDamagePercent:15.0,追求爆發暴擊；用 10017 取代 20005，降低額外傷害負面副作用
+遺物詞條,全部,穩定爆爆套,10009,전설 속 등장품,CriticalDamagePercent:60.0,追求爆發暴擊；用 10017 取代 20005，降低額外傷害負面副作用
+遺物詞條,全部,穩定爆爆套,10003,승리의 증거,CriticalChancePercent:10.0,追求爆發暴擊；用 10017 取代 20005，降低額外傷害負面副作用
+遺物詞條,全部,穩定爆爆套,10017,기묘한 반짝임,CriticalChancePercent:5.0,追求爆發暴擊；用 10017 取代 20005，降低額外傷害負面副作用
+遺物詞條,全部,穩定爆爆套,20012,저주받음,HpMax:-30|Def:-5|CriticalDamagePercent:20.0,追求爆發暴擊；用 10017 取代 20005，降低額外傷害負面副作用
+角色最強配置,佳映,整套,1007,暗影劍,武器:Atk:190|CorruptionMax:20|BackAttackDamagePercent:8 / 飾品:20026 + 22016 + 25035 / 遺物詞條:10004+10005+10009+10003+10018+10007,Sword 角色用對應最高傷傳奇武器；飾品與遺物詞條共用通用最高傷害套
+角色最強配置,諾亞,整套,1207,亡靈獵手,武器:Atk:190|CorruptionMax:20|BackAttackDamagePercent:8 / 飾品:20026 + 22016 + 25035 / 遺物詞條:10004+10005+10009+10003+10018+10007,Shotgun 角色用對應最高傷傳奇武器；飾品與遺物詞條共用通用最高傷害套
+角色最強配置,米歐,整套,1107,謎團墊,武器:Atk:190|CorruptionMax:20|BackAttackDamagePercent:8 / 飾品:20026 + 22016 + 25035 / 遺物詞條:10004+10005+10009+10003+10018+10007,Phone 角色用對應最高傷傳奇武器；飾品與遺物詞條共用通用最高傷害套
+角色最強配置,蕾文,整套,1307,奧秘左輪手槍,武器:Atk:190|CorruptionMax:20|BackAttackDamagePercent:8 / 飾品:20026 + 22016 + 25035 / 遺物詞條:10004+10005+10009+10003+10018+10007,Revolver 角色用對應最高傷傳奇武器；飾品與遺物詞條共用通用最高傷害套

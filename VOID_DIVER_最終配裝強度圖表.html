@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>VOID DIVER 最終強度總表</title>
+<style>
+  :root { color-scheme: light; --ink:#202124; --muted:#5f6368; --line:#d7dce2; --bg:#f6f7f9; --panel:#fff; --red:#c95745; --blue:#3d6fb6; --green:#568b52; }
+  body { margin:0; font-family:"Microsoft JhengHei","Noto Sans TC",Arial,sans-serif; background:var(--bg); color:var(--ink); }
+  header { padding:28px 34px 18px; background:#252a31; color:#fff; }
+  h1 { margin:0 0 8px; font-size:28px; letter-spacing:0; }
+  .sub { color:#d8dde5; font-size:14px; }
+  main { max-width:1120px; margin:0 auto; padding:24px; }
+  .summary { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:18px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:14px 16px; }
+  .card b { display:block; font-size:22px; margin:4px 0; }
+  .card span { color:var(--muted); font-size:13px; }
+  .panel { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:16px; margin:16px 0; overflow:auto; }
+  h2 { margin:0 0 12px; font-size:19px; }
+  p { line-height:1.65; margin:8px 0; }
+  table { width:100%; border-collapse:collapse; font-size:13px; }
+  th,td { border-bottom:1px solid var(--line); padding:9px 8px; text-align:left; vertical-align:top; }
+  th { background:#eef1f5; position:sticky; top:0; }
+  .chart-title { font-size:18px; font-weight:700; fill:#202124; }
+  .label { font-size:14px; fill:#202124; }
+  .value { font-size:13px; fill:#202124; font-weight:700; }
+  .note { color:var(--muted); font-size:13px; }
+  @media (max-width:800px){ .summary{grid-template-columns:1fr 1fr;} main{padding:14px;} }
+
+.langSwitch{position:fixed;right:16px;top:12px;z-index:9999;display:flex;gap:4px;background:rgba(16,16,16,.92);border:1px solid #3a3a3a;border-radius:6px;padding:4px;box-shadow:0 4px 18px rgba(0,0,0,.22)}
+.langSwitch button{background:#1b1b1b;color:#ddd;border:1px solid #444;border-radius:4px;padding:5px 8px;font:12px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;cursor:pointer;min-width:40px}
+.langSwitch button:hover{background:#2a2a2a}
+.langSwitch button.active{background:#2d5f7a;border-color:#6fbce6;color:#fff}
+
+</style>
+</head>
+<body>
+<header>
+  <h1>VOID DIVER 最終強度總表</h1>
+  <div class="sub">依表格 HitBox 直接傷害倍率、裝備限制、飾品同類型只一件、遺物詞條傷害分數整理；本版已將背擊增傷視為不穩定收益，不列入裝備評分。</div>
+</header>
+<main>
+  <section class="summary">
+    <div class="card"><span>整套直接倍率第一</span><b>佳映</b><span>2080%</span></div>
+    <div class="card"><span>普攻第一</span><b>佳映</b><span>320%</span></div>
+    <div class="card"><span>單招爆發第一</span><b>佳映</b><span>800%</span></div>
+    <div class="card"><span>通用遺物詞條</span><b>攻擊、增傷、暴擊</b><span>再補攻速與冷卻縮減</span></div>
+  </section>
+  <section class="panel">
+    <h2>傷害公式</h2>
+    <p><b>表內基礎傷害：</b>HitBox 傷害 = Power + Atk × StatFactor%。多段技能會把每個 HitBox 的 StatFactor 分段計算。</p>
+    <p><b>實戰估算：</b>最終傷害約等於 基礎傷害 × 攻擊/額外傷害修正 × 暴擊期望 × 攻速或冷卻收益 × 穿透/防禦修正 × 屬性抗性修正 × 弱點/背擊等條件修正。</p>
+    <p><b>暴擊：</b>基礎暴擊率 7%，基礎暴擊傷害 35%；裝備的 CriticalChancePercent 與 CriticalDamagePercent 會疊上去。</p>
+    <p><b>背擊：</b>遊戲常數有角色背擊暴擊率 +25%、背擊傷害 +15%，但本版因為背擊很難穩定觸發，所以裝備評分中將 BackAttackDamagePercent 視為 0 收益。</p>
+    <p><b>屬性抗性：</b>屬性倍率 = 1 - 抗性% / 100；怪物抗性 -25% 代表該屬性傷害 x1.25，抗性 25% 代表傷害 x0.75。</p>
+    <p><b>弱點：</b>WeaknessDamagePercent 是額外弱點增傷；WeakPoint 滿層爆發常數為火 40%、水 35%、風 27.5%。</p>
+  </section>
+  <section class="panel">
+    <h2>套裝面板與最高傷害</h2>
+    <p><b>計算基準：</b>武器用各角色最高傳奇武器；飾品用全類型三槽最高組合：預知之戒、疾走耳環、碧風諾里蓋；遺物槽按表內 2 格計算，所以每套 6 條詞條都算兩份。</p>
+    <p><b>最高傷害口徑：</b>用各角色最高倍率主動技能計算，不含背擊、不含怪物防禦、不含屬性克制；穿透列在面板但不硬算進單下傷害，因為怪物防禦換算公式表內不完整。</p>
+    <p><b>結論：</b>佳映 的 穩定爆爆套 必暴單招最高，估算約 6872；平均期望最高也是 佳映 的 穩定爆爆套，約 5373。</p>
+    <table><thead><tr><th>角色</th><th>套裝</th><th>最高技能</th><th>攻擊</th><th>暴擊率%</th><th>暴擊傷害%</th><th>額外攻擊傷害%</th><th>攻速%</th><th>冷卻縮減%</th><th>穿透%</th><th>生命</th><th>防禦</th><th>單招必暴最大傷害(估算)</th><th>單招平均期望傷害(估算)</th></tr></thead><tbody><tr><td>佳映</td><td>最強套</td><td>[終極]鬼滅之舞 (10010700)</td><td>224</td><td>57</td><td>155</td><td>30</td><td>100</td><td>21</td><td>24</td><td>0</td><td>0</td><td>5940</td><td>4388</td></tr><tr><td>佳映</td><td>穩定爆爆套</td><td>[終極]鬼滅之舞 (10010700)</td><td>224</td><td>67</td><td>195</td><td>30</td><td>60</td><td>5</td><td>24</td><td>-60</td><td>-10</td><td>6872</td><td>5373</td></tr><tr><td>蕾文</td><td>最強套</td><td>裝填重擊 (10013300)</td><td>224</td><td>57</td><td>155</td><td>30</td><td>100</td><td>21</td><td>24</td><td>0</td><td>0</td><td>2079</td><td>1536</td></tr><tr><td>蕾文</td><td>穩定爆爆套</td><td>裝填重擊 (10013300)</td><td>224</td><td>67</td><td>195</td><td>30</td><td>60</td><td>5</td><td>24</td><td>-60</td><td>-10</td><td>2405</td><td>1881</td></tr><tr><td>米歐</td><td>最強套</td><td>夏比的氣息 (10011400)</td><td>224</td><td>57</td><td>155</td><td>30</td><td>100</td><td>21</td><td>24</td><td>0</td><td>0</td><td>3527</td><td>2605</td></tr><tr><td>米歐</td><td>穩定爆爆套</td><td>夏比的氣息 (10011400)</td><td>224</td><td>67</td><td>195</td><td>30</td><td>60</td><td>5</td><td>24</td><td>-60</td><td>-10</td><td>4080</td><td>3190</td></tr><tr><td>諾亞</td><td>最強套</td><td>龍息 (10012500)</td><td>224</td><td>57</td><td>155</td><td>30</td><td>100</td><td>21</td><td>24</td><td>0</td><td>0</td><td>2228</td><td>1645</td></tr><tr><td>諾亞</td><td>穩定爆爆套</td><td>龍息 (10012500)</td><td>224</td><td>67</td><td>195</td><td>30</td><td>60</td><td>5</td><td>24</td><td>-60</td><td>-10</td><td>2577</td><td>2015</td></tr></tbody></table>
+  </section>
+  <section class="panel">
+    <h2>飾品替代搭配</h2>
+    <p><b>讀法：</b>這裡用佳映 800% 大招做共同基準，方便比較飾品差異。實戰手感看攻速/冷卻，單下爆發看必暴傷害，平均輸出看期望傷害。</p>
+    <p><b>結論：</b>原本的預知之戒 + 疾走耳環 + 碧風諾里蓋是循環手感最高；若只追求平均傷害，第三件可換紅蓮諾里蓋；若只追求必暴單下，改用慘劇之戒 + 再生項鍊 + 紅蓮諾里蓋。</p>
+    <table><thead><tr><th>用途</th><th>遺物套</th><th>飾品</th><th>攻擊</th><th>暴擊率%</th><th>暴擊傷害%</th><th>攻速%</th><th>冷卻縮減%</th><th>佳映800%必暴傷害</th><th>佳映800%期望傷害</th><th>理由</th></tr></thead><tbody><tr><td>手感/循環最高</td><td>最強套</td><td>20026 預知之戒 + 22016 疾走耳環 + 25035 碧風諾里蓋</td><td>224</td><td>57</td><td>155</td><td>100</td><td>21</td><td>5940</td><td>4388</td><td>攻速最高，預知之戒補暴擊與冷卻；背擊不計後仍是循環分最高。</td></tr><tr><td>手感/循環最高</td><td>穩定爆爆套</td><td>20026 預知之戒 + 22016 疾走耳環 + 25035 碧風諾里蓋</td><td>224</td><td>67</td><td>195</td><td>60</td><td>5</td><td>6872</td><td>5373</td><td>攻速最高，預知之戒補暴擊與冷卻；背擊不計後仍是循環分最高。</td></tr><tr><td>平均傷害最高</td><td>最強套</td><td>20026 預知之戒 + 22016 疾走耳環 + 25015 紅蓮諾里蓋</td><td>224</td><td>57</td><td>177.5</td><td>80</td><td>21</td><td>6465</td><td>4687</td><td>保留預知之戒與疾走耳環的暴擊/攻速，將諾里蓋換成紅蓮諾里蓋補暴擊傷害與弱點傷害。</td></tr><tr><td>平均傷害最高</td><td>穩定爆爆套</td><td>20026 預知之戒 + 22016 疾走耳環 + 25015 紅蓮諾里蓋</td><td>224</td><td>67</td><td>217.5</td><td>40</td><td>5</td><td>7396</td><td>5724</td><td>保留預知之戒與疾走耳環的暴擊/攻速，將諾里蓋換成紅蓮諾里蓋補暴擊傷害與弱點傷害。</td></tr><tr><td>必暴單下最大</td><td>最強套</td><td>20036 慘劇之戒 + 21034 再生項鍊 + 25015 紅蓮諾里蓋</td><td>239</td><td>27</td><td>245</td><td>40</td><td>16</td><td>8575</td><td>4130</td><td>慘劇之戒提供大量暴擊傷害，再生項鍊補攻擊與穿透，紅蓮諾里蓋再補暴擊傷害；前提是你只看必暴單下。</td></tr><tr><td>必暴單下最大</td><td>穩定爆爆套</td><td>20036 慘劇之戒 + 21034 再生項鍊 + 25015 紅蓮諾里蓋</td><td>239</td><td>37</td><td>285</td><td>0</td><td>0</td><td>9570</td><td>5107</td><td>慘劇之戒提供大量暴擊傷害，再生項鍊補攻擊與穿透，紅蓮諾里蓋再補暴擊傷害；前提是你只看必暴單下。</td></tr><tr><td>冷卻/弱點替代</td><td>最強套</td><td>20026 預知之戒 + 22016 疾走耳環 + 23014 時間扭曲手鐲</td><td>224</td><td>57</td><td>155</td><td>80</td><td>33.5</td><td>5940</td><td>4388</td><td>把諾里蓋換成時間扭曲手鐲，傷害略低，但冷卻更舒服，且弱點傷害更高。</td></tr><tr><td>冷卻/弱點替代</td><td>穩定爆爆套</td><td>20026 預知之戒 + 22016 疾走耳環 + 23014 時間扭曲手鐲</td><td>224</td><td>67</td><td>195</td><td>40</td><td>17.5</td><td>6872</td><td>5373</td><td>把諾里蓋換成時間扭曲手鐲，傷害略低，但冷卻更舒服，且弱點傷害更高。</td></tr></tbody></table>
+  </section>
+  
+  
+  
+  <section class="panel"><h2>各套裝必暴單招最大傷害</h2><svg viewBox="0 0 920 414" role="img" aria-label="各套裝必暴單招最大傷害"><text x="16" y="28" class="chart-title">各套裝必暴單招最大傷害</text><text x="16" y="76" class="label">佳映 穩定爆爆套</text>
+      <rect x="145" y="54" width="725" height="26" rx="4" fill="#a84d3e"></rect>
+      <text x="880" y="73" class="value">6872</text>
+<text x="16" y="118" class="label">佳映 最強套</text>
+      <rect x="145" y="96" width="627" height="26" rx="4" fill="#a84d3e"></rect>
+      <text x="782" y="115" class="value">5940</text>
+<text x="16" y="160" class="label">米歐 穩定爆爆套</text>
+      <rect x="145" y="138" width="430" height="26" rx="4" fill="#a84d3e"></rect>
+      <text x="585" y="157" class="value">4080</text>
+<text x="16" y="202" class="label">米歐 最強套</text>
+      <rect x="145" y="180" width="372" height="26" rx="4" fill="#a84d3e"></rect>
+      <text x="527" y="199" class="value">3527</text>
+<text x="16" y="244" class="label">諾亞 穩定爆爆套</text>
+      <rect x="145" y="222" width="272" height="26" rx="4" fill="#a84d3e"></rect>
+      <text x="427" y="241" class="value">2577</text>
+<text x="16" y="286" class="label">蕾文 穩定爆爆套</text>
+      <rect x="145" y="264" width="254" height="26" rx="4" fill="#a84d3e"></rect>
+      <text x="409" y="283" class="value">2405</text>
+<text x="16" y="328" class="label">諾亞 最強套</text>
+      <rect x="145" y="306" width="235" height="26" rx="4" fill="#a84d3e"></rect>
+      <text x="390" y="325" class="value">2228</text>
+<text x="16" y="370" class="label">蕾文 最強套</text>
+      <rect x="145" y="348" width="219" height="26" rx="4" fill="#a84d3e"></rect>
+      <text x="374" y="367" class="value">2079</text></svg></section>
+  <section class="panel"><h2>各套裝平均期望傷害</h2><svg viewBox="0 0 920 414" role="img" aria-label="各套裝平均期望傷害"><text x="16" y="28" class="chart-title">各套裝平均期望傷害</text><text x="16" y="76" class="label">佳映 穩定爆爆套</text>
+      <rect x="145" y="54" width="725" height="26" rx="4" fill="#5b7fba"></rect>
+      <text x="880" y="73" class="value">5373</text>
+<text x="16" y="118" class="label">佳映 最強套</text>
+      <rect x="145" y="96" width="592" height="26" rx="4" fill="#5b7fba"></rect>
+      <text x="747" y="115" class="value">4388</text>
+<text x="16" y="160" class="label">米歐 穩定爆爆套</text>
+      <rect x="145" y="138" width="430" height="26" rx="4" fill="#5b7fba"></rect>
+      <text x="585" y="157" class="value">3190</text>
+<text x="16" y="202" class="label">米歐 最強套</text>
+      <rect x="145" y="180" width="352" height="26" rx="4" fill="#5b7fba"></rect>
+      <text x="507" y="199" class="value">2605</text>
+<text x="16" y="244" class="label">諾亞 穩定爆爆套</text>
+      <rect x="145" y="222" width="272" height="26" rx="4" fill="#5b7fba"></rect>
+      <text x="427" y="241" class="value">2015</text>
+<text x="16" y="286" class="label">蕾文 穩定爆爆套</text>
+      <rect x="145" y="264" width="254" height="26" rx="4" fill="#5b7fba"></rect>
+      <text x="409" y="283" class="value">1881</text>
+<text x="16" y="328" class="label">諾亞 最強套</text>
+      <rect x="145" y="306" width="222" height="26" rx="4" fill="#5b7fba"></rect>
+      <text x="377" y="325" class="value">1645</text>
+<text x="16" y="370" class="label">蕾文 最強套</text>
+      <rect x="145" y="348" width="207" height="26" rx="4" fill="#5b7fba"></rect>
+      <text x="362" y="367" class="value">1536</text></svg></section>
+  <section class="panel">
+    <h2>結論</h2>
+    <p>只看表內直接傷害倍率，最強是 <b>佳映</b>。她的基本攻擊倍率最高，主動技能也有 800% 的大招，所以整套直接輸出明顯領先。</p>
+    <p>第二梯隊是 <b>蕾文</b>，整體倍率與機動攻擊都不錯。<b>米歐</b> 的技能爆發不差，但普攻倍率偏低。<b>諾亞</b> 在直接倍率表現最後，不過部分 0 倍率技能可能是防禦、召喚、狀態或特殊機制，實戰價值不完全等於 0。</p>
+    <p><b>背擊重算原因：</b>背擊需要站位、怪物朝向和輸出窗口配合，實戰很難穩定觸發，所以本版把裝備與詞條中的 BackAttackDamagePercent 視為 0 收益。角色技能的基礎倍率仍保留，因為那些傷害正面命中也會打出來；被移除的是背擊額外增傷的評分。</p>
+    <p><b>飾品規則修正：</b>飾品不是只看戒指、耳環、手鐲，而是所有飾品類型都納入，例如項鍊、諾里蓋等；只限制同類型不能重複。因此最終推薦改為所有類型中取前三個不同類型。</p>
+  </section>
+  <section class="panel"><h2>角色整套直接倍率合計</h2><svg viewBox="0 0 920 246" role="img" aria-label="角色整套直接倍率合計"><text x="16" y="28" class="chart-title">角色整套直接倍率合計</text><text x="16" y="76" class="label">佳映</text>
+      <rect x="145" y="54" width="725" height="26" rx="4" fill="#c95745"></rect>
+      <text x="880" y="73" class="value">2080%</text>
+<text x="16" y="118" class="label">蕾文</text>
+      <rect x="145" y="96" width="410" height="26" rx="4" fill="#c95745"></rect>
+      <text x="565" y="115" class="value">1175%</text>
+<text x="16" y="160" class="label">米歐</text>
+      <rect x="145" y="138" width="380" height="26" rx="4" fill="#c95745"></rect>
+      <text x="535" y="157" class="value">1090%</text>
+<text x="16" y="202" class="label">諾亞</text>
+      <rect x="145" y="180" width="268" height="26" rx="4" fill="#c95745"></rect>
+      <text x="423" y="199" class="value">770%</text></svg></section>
+  <section class="panel"><h2>基本攻擊倍率排行</h2><svg viewBox="0 0 920 246" role="img" aria-label="基本攻擊倍率排行"><text x="16" y="28" class="chart-title">基本攻擊倍率排行</text><text x="16" y="76" class="label">佳映</text>
+      <rect x="145" y="54" width="725" height="26" rx="4" fill="#3d6fb6"></rect>
+      <text x="880" y="73" class="value">320%</text>
+<text x="16" y="118" class="label">蕾文</text>
+      <rect x="145" y="96" width="646" height="26" rx="4" fill="#3d6fb6"></rect>
+      <text x="801" y="115" class="value">285%</text>
+<text x="16" y="160" class="label">諾亞</text>
+      <rect x="145" y="138" width="521" height="26" rx="4" fill="#3d6fb6"></rect>
+      <text x="676" y="157" class="value">230%</text>
+<text x="16" y="202" class="label">米歐</text>
+      <rect x="145" y="180" width="181" height="26" rx="4" fill="#3d6fb6"></rect>
+      <text x="336" y="199" class="value">80%</text></svg></section>
+  <section class="panel"><h2>最高主動技能爆發排行</h2><svg viewBox="0 0 920 246" role="img" aria-label="最高主動技能爆發排行"><text x="16" y="28" class="chart-title">最高主動技能爆發排行</text><text x="16" y="76" class="label">佳映</text>
+      <rect x="145" y="54" width="725" height="26" rx="4" fill="#568b52"></rect>
+      <text x="880" y="73" class="value">800%</text>
+<text x="16" y="118" class="label">米歐</text>
+      <rect x="145" y="96" width="430" height="26" rx="4" fill="#568b52"></rect>
+      <text x="585" y="115" class="value">475%</text>
+<text x="16" y="160" class="label">諾亞</text>
+      <rect x="145" y="138" width="272" height="26" rx="4" fill="#568b52"></rect>
+      <text x="427" y="157" class="value">300%</text>
+<text x="16" y="202" class="label">蕾文</text>
+      <rect x="145" y="180" width="254" height="26" rx="4" fill="#568b52"></rect>
+      <text x="409" y="199" class="value">280%</text></svg></section>
+  <section class="panel">
+    <h2>最終強度表</h2>
+    <table><thead><tr><th>排名</th><th>角色</th><th>武器類型</th><th>基本攻擊倍率%</th><th>最高主動技能倍率%</th><th>最高主動技能</th><th>整套直接倍率合計%</th><th>推薦武器ID</th><th>推薦武器</th><th>判定</th></tr></thead><tbody><tr><td>1</td><td>佳映</td><td>Sword</td><td>320</td><td>800</td><td>[終極]鬼滅之舞 (10010700)</td><td>2080</td><td>1007</td><td>暗影劍</td><td>最強直接輸出</td></tr><tr><td>2</td><td>蕾文</td><td>Revolver</td><td>285</td><td>280</td><td>裝填重擊 (10013300)</td><td>1175</td><td>1307</td><td>奧秘左輪手槍</td><td>次強，機動爆發好</td></tr><tr><td>3</td><td>米歐</td><td>Phone</td><td>80</td><td>475</td><td>夏比的氣息 (10011400)</td><td>1090</td><td>1107</td><td>謎團墊</td><td>技能爆發不錯，普攻弱</td></tr><tr><td>4</td><td>諾亞</td><td>Shotgun</td><td>230</td><td>300</td><td>龍息 (10012500)</td><td>770</td><td>1207</td><td>亡靈獵手</td><td>表內直接倍率較低</td></tr></tbody></table>
+  </section>
+  <section class="panel">
+    <h2>最強配裝</h2>
+    <p><b>飾品三槽版：</b>戒指 20026 預知之戒 + 耳環 22016 疾走耳環 + 諾里蓋 25035 碧風諾里蓋。</p>
+    <p><b>修正原因：</b>飾品槽只有 3 個，但可從戒指、耳環、手鐲、項鍊、諾里蓋等不同類型中任選；同類型只能 1 件。背擊不計後，碧風諾里蓋雖然背刺傷害不加分，但仍有攻速，所以分數仍高於時間扭曲手鐲。時間扭曲手鐲是冷卻/弱點打法的替代選，不是純傷害最高。</p>
+    <p><b>遺物通用最高傷害：</b>名匠簽名：攻擊+17、穿透+12% / 歷史性的稀有度：額外攻擊傷害+15% / 傳說中登場之物：暴擊傷害+60% / 勝利的證據：暴擊率+10% / 時間的殘響：攻擊速度+15% / 古代智慧：冷卻縮減+8%、攻擊速度+5%。</p>
+    <p><b>穩定爆爆套：</b>名匠簽名：攻擊+17、穿透+12% / 歷史性的稀有度：額外攻擊傷害+15% / 傳說中登場之物：暴擊傷害+60% / 勝利的證據：暴擊率+10% / 奇妙的閃光：暴擊率+5% / 被詛咒：最大生命-30、防禦-5、暴擊傷害+20%。這套更偏爆發，但少掉 20005 的額外傷害負面，穩定性比舊爆爆套更好。</p>
+    <p><b>極限重複最大化：</b>10003 x3（暴擊率） + 10005 x3（額外傷害） + 10009 x6（暴擊傷害）。這是用來測試同 ID 詞條能不能被遊戲重複疊加；若遊戲會去重，實際效果會低於表面配置。</p>
+  </section>
+  <section class="panel">
+    <h2>飾品傷害排行 Top 8</h2>
+    <table><thead><tr><th>排名</th><th>裝備ID</th><th>中文名</th><th>類型/EquipPartGroup</th><th>分數(越高越偏傷害)</th><th>Stats</th></tr></thead><tbody><tr><td>1</td><td>20026</td><td>預知之戒</td><td>1</td><td>259.72</td><td>CriticalChancePercent:22.5|AtkSpeedPercent:20|CooldownReductionPercent:5</td></tr><tr><td>2</td><td>22016</td><td>疾走耳環</td><td>3</td><td>241.97</td><td>MoveSpeedPercent:12.5|CriticalChancePercent:7.5|AtkSpeedPercent:20</td></tr><tr><td>3</td><td>20016</td><td>赤血之戒</td><td>1</td><td>241.53</td><td>Atk:45|MoveSpeedPercent:4|HpMax:90</td></tr><tr><td>4</td><td>20044</td><td>鐵極之戒</td><td>1</td><td>238.45</td><td>PenetrationPercent:30|HpRegen:1.5|Def:15</td></tr><tr><td>5</td><td>25035</td><td>碧風諾里蓋</td><td>5</td><td>233.59</td><td>WindResistancePercent:60|BackAttackDamagePercent:15|AtkSpeedPercent:20</td></tr><tr><td>6</td><td>21034</td><td>再生項鍊</td><td>2</td><td>225.77</td><td>HpRegen:4.5|Atk:15|PenetrationPercent:10</td></tr><tr><td>7</td><td>23014</td><td>時間扭曲手鐲</td><td>4</td><td>225.20</td><td>CooldownReductionPercent:12.5|HpRegen:4.5|WeaknessDamagePercent:20</td></tr><tr><td>8</td><td>25025</td><td>滄海諾里蓋</td><td>5</td><td>214.62</td><td>WaterResistancePercent:60|PenetrationPercent:10|CriticalChancePercent:7.5</td></tr></tbody></table>
+  </section>
+  <section class="panel">
+    <h2>遺物詞條傷害排行 Top 10</h2>
+    <table><thead><tr><th>排名</th><th>效果</th><th>傷害分數增量</th><th>推薦</th></tr></thead><tbody><tr><td>1</td><td>名匠簽名：攻擊+17、穿透+12%</td><td>36.50</td><td>通用</td></tr><tr><td>2</td><td>歷史性的稀有度：額外攻擊傷害+15%</td><td>29.20</td><td>通用</td></tr><tr><td>3</td><td>時間的殘響：攻擊速度+15%</td><td>29.20</td><td>通用</td></tr><tr><td>4</td><td>內在魔力：穿透+18%</td><td>26.28</td><td></td></tr><tr><td>5</td><td>熟悉的設計：攻擊+10、攻擊速度+5%</td><td>20.49</td><td></td></tr><tr><td>6</td><td>古代智慧：冷卻縮減+8%、攻擊速度+5%</td><td>20.36</td><td>通用</td></tr><tr><td>7</td><td>過於渺小：防禦-10、移動速度-1%、攻擊速度+7%</td><td>13.46</td><td></td></tr><tr><td>8</td><td>完整形態：攻擊+10</td><td>10.25</td><td></td></tr><tr><td>9</td><td>象徵性紋樣：弱點傷害+15%</td><td>10.22</td><td></td></tr><tr><td>10</td><td>微弱光澤：穿透+6%</td><td>8.76</td><td></td></tr></tbody></table>
+  </section>
+  <section class="panel note">
+    讀法：這份報告以表格中的 HitBox 直接傷害倍率做排行；治療、召喚、無敵、防禦、變身、被動觸發等特殊機制不會完全反映在倍率總和裡。
+  </section>
+</main>
+
+<script id="voidFinalStrengthLangSwitch">
+(function(){
+  if (window.__voidFinalStrengthLangSwitchInstalled) return;
+  window.__voidFinalStrengthLangSwitchInstalled = true;
+  const KEY = "voidDiverReportLang";
+  const hansMap = {
+    "傷":"伤","體":"体","總":"总","強":"强","圖":"图","標":"标","屬":"属","數":"数","據":"据","裝":"装","備":"备","詞":"词","條":"条","遺":"遗","擊":"击","額":"额","萬":"万","與":"与","優":"优","級":"级","實":"实","測":"测","計":"计","較":"较","關":"关","鍵":"键","選":"选","擇":"择","說":"说","明":"明","穩":"稳","壓":"压","顯":"显","示":"示","頁":"页","單":"单","雙":"双","類":"类","禦":"御","防":"防","險":"险","區":"区","塊":"块","腳":"脚","色":"色","慮":"虑","擊":"击","傷":"伤","圍":"围","舊":"旧","寫":"写","讀":"读","檔":"档","檢":"检","視":"视","繪":"绘","製":"制","應":"应","該":"该","讓":"让","穩":"稳"
+  };
+  const enPhrases = new Map(Object.entries({
+    "VOID DIVER 最終強度總表":"VOID DIVER Final Power Summary",
+    "最終強度表":"Final Power Table",
+    "傷害公式":"Damage Formula",
+    "套裝面板與最高傷害":"Build Stats and Peak Damage",
+    "飾品替代搭配":"Accessory Alternatives",
+    "最強配裝":"Best Builds",
+    "角色":"Character",
+    "套裝":"Build",
+    "遺物":"Relics",
+    "飾品":"Accessories",
+    "武器":"Weapon",
+    "攻擊":"Attack",
+    "暴擊率":"Critical Rate",
+    "暴擊傷害":"Critical Damage",
+    "額外傷害":"Additional Damage",
+    "攻速":"Attack Speed",
+    "冷卻縮減":"Cooldown Reduction",
+    "穿透":"Penetration",
+    "生命":"HP",
+    "防禦":"Defense",
+    "理由":"Reason",
+    "結論":"Conclusion",
+    "平均期望傷害":"Expected Damage",
+    "最高傷害":"Peak Damage",
+    "必暴傷害":"Guaranteed Critical Damage",
+    "公式":"Formula",
+    "用途":"Use",
+    "推薦":"Recommended",
+    "穩定":"Stable",
+    "爆發":"Burst",
+    "一般玩家":"Regular Player"
+  }));
+  function toHans(text) {
+    return String(text).replace(/[\u4e00-\u9fff]/g, ch => hansMap[ch] || ch);
+  }
+  function toEnglish(text) {
+    let out = String(text);
+    [...enPhrases.entries()].sort((a,b)=>b[0].length-a[0].length).forEach(([zh,en]) => {
+      out = out.split(zh).join(en);
+    });
+    return out;
+  }
+  function nodes() {
+    const list = [];
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        const p = node.parentElement;
+        if (!p || ["SCRIPT","STYLE","TEXTAREA"].includes(p.tagName)) return NodeFilter.FILTER_REJECT;
+        if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    while (walker.nextNode()) {
+      const n = walker.currentNode;
+      if (!n.__origText) n.__origText = n.nodeValue;
+      list.push(n);
+    }
+    return list;
+  }
+  function apply(lang) {
+    localStorage.setItem(KEY, lang);
+    for (const n of nodes()) {
+      const src = n.__origText || n.nodeValue;
+      n.nodeValue = lang === "zh-Hant" ? src : (lang === "zh-Hans" ? toHans(src) : toEnglish(src));
+    }
+    document.querySelectorAll(".langSwitch button").forEach(b => b.classList.toggle("active", b.dataset.lang === lang));
+    document.documentElement.lang = lang;
+  }
+  function install() {
+    const box = document.createElement("div");
+    box.className = "langSwitch";
+    box.innerHTML = '<button data-lang="zh-Hant">繁體</button><button data-lang="zh-Hans">簡體</button><button data-lang="en">EN</button>';
+    box.addEventListener("click", e => { if (e.target.dataset.lang) apply(e.target.dataset.lang); });
+    document.body.appendChild(box);
+    apply(localStorage.getItem(KEY) || "zh-Hant");
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", install);
+  else install();
+})();
+</script>
+
+</body>
+</html>

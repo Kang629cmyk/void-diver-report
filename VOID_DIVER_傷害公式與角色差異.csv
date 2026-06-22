@@ -1,0 +1,7 @@
+﻿項目,內容,證據
+表內直接傷害公式,HitBox 的 CollisionDamageEvent 使用 DamageInfo: Power + CoefficientStat(通常 Atk) * StatFactor%。Atk 來自角色/武器/裝備/詞條/Buff；之後再套暴擊、背刺、穿透、弱點、額外傷害、怪物防禦/抗性等修正。,"HitBox.csv: DamageInfo.Power / CoefficientStat / StatFactor / CanBackAttack；Const.csv: DefaultCriticalChancePercent=7, DefaultCriticalDamagePercent=35, MaxCooldownReductionPercent=40, DefaultCharacterBackAttackDamagePercent=15, CharacterBackAttackIncreaseCriticalChancePercent=25"
+四角色是否不同公式,沒有看到四角色各自使用不同傷害公式的表格欄位；Character.csv 四名可用角色 WeaponAtkMultiplier 都是 1、Atk 都是 0。差別主要是武器類型、技能 HitBox 倍率/段數、被動與召喚/特殊事件。,Character.csv WeaponAtkMultiplier/Atk；Skill.csv + HitBox.csv
+角色差異,佳映：武器 Sword，HP 630，移速 2.3，基本攻擊表內倍率合計約 320.00%。,AttackSkillId=10010000；技能細節見 VOID_DIVER_四角色技能與倍率.csv
+角色差異,諾亞：武器 Shotgun，HP 530，移速 2.1，基本攻擊表內倍率合計約 230.00%。,AttackSkillId=10012000；技能細節見 VOID_DIVER_四角色技能與倍率.csv
+角色差異,米歐：武器 Phone，HP 520，移速 1.9，基本攻擊表內倍率合計約 80.00%。,AttackSkillId=10011000；技能細節見 VOID_DIVER_四角色技能與倍率.csv
+角色差異,蕾文：武器 Revolver，HP 540，移速 2，基本攻擊表內倍率合計約 285.00%。,AttackSkillId=10013000；技能細節見 VOID_DIVER_四角色技能與倍率.csv
